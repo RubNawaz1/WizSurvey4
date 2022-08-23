@@ -1,0 +1,43 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>Wizinsights</title>
+{% endblock %}
+
+{% block content %}
+<div class="modal-dialog">
+  
+  
+  <div class="modal-header">
+    <img src="{{ url_for('static', path='images/logo.png') }}" alt="" width="320" height="60">
+      <div class="text-danger font-weight-bold">
+          {% for error in errors %}
+            <li>{{error}}</li>
+          {% endfor %}
+      </div>
+      <div class="text-success font-weight-bold">
+        {% if msg %}
+        <div class="badge bg-success text-wrap font-weight-bold" style="font-size: large;">
+          {{msg}}
+        </div>
+        {% endif %}
+    </div>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="http://127.0.0.1:8000/" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="text" required placeholder="Your email" name="email" value="{{email}}" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label>Password</label>
+          <input type="password" required placeholder="Choose a secure password" value="{{password}}" name="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-danger">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+  {% endblock %}
