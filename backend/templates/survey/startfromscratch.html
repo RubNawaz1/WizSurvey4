@@ -1,0 +1,98 @@
+{% extends "shared/base_dashboard.html" %}
+{% block title %}
+  <title>Wizinsights</title>
+{% endblock %}
+{% block content %}
+<div class="modal-dialog col" style="float:left;margin-left:10px">
+  
+    <h4>Create a new survey</h4>
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="{{ url_for('static', path='images/file.png') }}" alt="" >
+        <a href="/create_survey/"><label style="color:black">Start from scratch</label></a>
+      </div>
+    </div>
+    <div class="modal-content" style="margin-top:20px">
+      <div class="modal-body">
+        <img src="{{ url_for('static', path='images/copy.png') }}" alt="" >
+        <a href="#"><label style="color:black">Copy a past survey</label></a>
+      </div>
+    </div>
+    <div class="modal-content" style="margin-top:20px">
+      <div class="modal-body">
+        <img src="{{ url_for('static', path='images/man.png') }}" alt="" >
+        <a href="#"><label style="color:black">Buy Targeted Responses</label></a>
+      </div>
+    </div>
+    <div class="modal-content" style="margin-top:20px">
+      <div class="modal-body">
+        <img src="{{ url_for('static', path='images/import_q.png') }}" alt="" >
+        <a href="#"><label style="color:black">Import Questions</label></a>
+      </div>
+    </div>
+    <div class="modal-content" style="margin-top:20px">
+      <div class="modal-body">
+        <img src="{{ url_for('static', path='images/s_template.png') }}" alt="" >
+        <a href="#"><label style="color:black">Start from template</label></a>
+      </div>
+    </div>
+    <div class="modal-content" style="margin-top:20px">
+      <div class="modal-body">
+        <img src="{{ url_for('static', path='images/circle.png') }}" alt="">
+        <a href="#"><label style="color:black">Build it for me</label></a>
+      </div>
+    </div>
+</div>
+
+<div class="modal-dialog d-flex col-md-12 offset-md-1" style="margin-left:1px">
+    <div class="modal-body">
+      <div class="modal-content">
+        <h5>Name Your survey</h5>
+    <div class="modal-body" style="background-color:#f8f9fa">
+      
+        <form action="/create_survey/" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <input type="text" required class="form-control" name="survey_name" value="{{survey_name}}" placeholder="Survey Name">
+        </div>
+        <div class="mb-3">
+          <input type="text" required class="form-control" name="survey_type" value="{{survey_type}}" placeholder="Survey Type">
+        </div>
+       <!-- <div class="mb-3">
+          <select class="form-select" aria-label="Survey Category" name="survey_category">
+            <option selected>Survey Category</option>
+            <option value="1">Customer Feedback</option>
+            <option value="2">Form or Application</option>
+            <option value="3">Quize</option>
+            <option value="3">Vote or Pol</option>
+            <option value="3">Course Evaluation</option>
+            <option value="3">Other</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+              <label class="form-check-label" for="firstCheckbox">My Questions are already written.</label>
+            </li>
+          </ul>
+        </div>
+        <div class="mb-3">
+          <label>Choose how to colect Responses</label>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+              <label class="form-check-label" for="firstRadio">Buy Targeted Responses.</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio" checked>
+              <label class="form-check-label" for="secondRadio">Use my own contacts.</label>
+            </li>
+          </ul>
+        </div>-->
+        <button type="submit" class="btn btn-danger">Create Survey</button>
+        </form>
+      </div>    
+  </div>
+</div>
+ 
+{% endblock %}
